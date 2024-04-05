@@ -16,8 +16,6 @@ public class UserAPI {
                 .contentType(ContentType.JSON)
                 .and()
                 .body(createUserRequest)
-                .log()
-                .all()
                 .post(POST_REGISTER_USER);
     }
     @Step("Отправка POST-запроса. Авторизация пользователя")
@@ -26,8 +24,6 @@ public class UserAPI {
                 .contentType(ContentType.JSON)
                 .and()
                 .body(loginUserRequest)
-                .log()
-                .all()
                 .post(POST_LOGIN_USER);
     }
 
@@ -35,8 +31,6 @@ public class UserAPI {
     public static Response deleteUserRequest(String accessToken) {
         return given()
                 .auth().oauth2(accessToken)
-                .log()
-                .all()
                 .delete(DELETE_USER);
     }
 
@@ -45,8 +39,6 @@ public class UserAPI {
         return given()
                 .auth().oauth2(accessToken)
                 .body(createUserRequest)
-                .log()
-                .all()
                 .patch(PATCH_CHANGE_DATA_USER);
     }
 
@@ -54,8 +46,6 @@ public class UserAPI {
     public static Response patchChangeUserDataRequest(CreateUserRequest createUserRequest) {
         return given()
                 .body(createUserRequest)
-                .log()
-                .all()
                 .patch(PATCH_CHANGE_DATA_USER);
     }
 }

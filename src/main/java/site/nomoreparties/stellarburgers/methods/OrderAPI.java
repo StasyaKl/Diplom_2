@@ -16,15 +16,11 @@ public class OrderAPI {
     public static Response getOrdersAuthUserRequest(String accessToken) {
         return given()
                 .auth().oauth2(accessToken)
-                .log()
-                .all()
                 .get(GET_ORDERS_FOR_USER);
     }
     @Step("Отправка GET-запроса. Получить заказы неавторизованного пользователя")
     public static Response getOrdersUserRequest() {
         return given()
-                .log()
-                .all()
                 .get(GET_ORDERS_FOR_USER);
     }
     @Step("Отправка GET-запроса. Получить данные об ингредиентах")
@@ -41,8 +37,6 @@ public class OrderAPI {
                 .auth().oauth2(accessToken)
                 .and()
                 .body(createOrderRequest)
-                .log()
-                .all()
                 .post(POST_CREATE_ORDER);
     }
     @Step("Отправка POST-запроса. Создание заказа неавторизованного пользователя")
@@ -51,8 +45,6 @@ public class OrderAPI {
                 .contentType(ContentType.JSON)
                 .and()
                 .body(createOrderRequest)
-                .log()
-                .all()
                 .post(POST_CREATE_ORDER);
     }
 }
