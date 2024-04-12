@@ -81,7 +81,7 @@ public class CreateOrderTest extends BaseTest {
                 .statusCode(SC_INTERNAL_SERVER_ERROR);
     }
 
-    public List<String> getListOfIngredientsIds(int N) {
+    public List<String> getListOfIngredientsIds(int n) {
         GetIngredientResponse getIngredient = getIngredientsRequest();
 
         Assert.assertNotNull("Не удалось десериализовать информацию о пользователе", getIngredient);
@@ -89,7 +89,7 @@ public class CreateOrderTest extends BaseTest {
         List<Datas> datas = getIngredient.getData();
         List<String> ids = new ArrayList<>();
 
-        for (int i = 0; i < N && i < datas.size(); i++) {
+        for (int i = 0; i < n && i < datas.size(); i++) {
             Datas data = datas.get(i);
             ids.add(data.get_id());
         }
