@@ -16,8 +16,7 @@ import static org.junit.Assert.assertTrue;
 public class GetOrdersCurrentUserTest extends BaseTest {
     @Test
     @DisplayName("Метод проверки получения заказов авторизованного пользователя")
-    @Description("Проверка правильного кода ответа (200) и _______________")
-    //можно сделать интереснее и добавить добавление заказов и проверку количества этих заказов в ответе
+    @Description("Проверка правильного кода ответа (200)")
     public void checkUserCreate() {
         getAccessTokenAuthUser();
 
